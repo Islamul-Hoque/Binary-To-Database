@@ -6,7 +6,7 @@ export default function Home() {
     <div>
       s
       <Hero />
-      {/* <ChapterGrid /> */}
+      <ChapterGrid />
     </div>
   );
 }

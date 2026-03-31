@@ -1,9 +1,3 @@
-
-
-
-
-
-
 "use client";
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
@@ -71,24 +65,24 @@ const ChapterGrid = () => {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // প্রতিটি কার্ডের জন্য আলাদা স্ক্রল এনিমেশন
+            
             gsap.utils.toArray(".chapter-card").forEach((card, i) => {
                 gsap.from(card, {
                     scrollTrigger: {
-                        trigger: card, // প্রতিটি কার্ড নিজেই নিজের ট্রিগার
-                        start: "top 90%", // কার্ডটি স্ক্রিনের ১০% উপরে আসলেই এনিমেশন শুরু হবে
+                        trigger: card, 
+                        start: "top 90%", 
                         toggleActions: "restart none none reverse",
                     },
                     y: 80,
                     opacity: 0,
                     scale: 0.85,
                     duration: 0.8,
-                    delay: i % 3 * 0.15, // প্রতি লাইনের কার্ডগুলোর মধ্যে হালকা ডিলে (Delay)
+                    delay: i % 3 * 0.15, 
                     ease: "power4.out",
                 });
             });
 
-            // হেডার সেকশনের জন্য সিম্পল এনিমেশন
+            
             gsap.from(".header-animate", {
                 y: -20,
                 opacity: 0,
@@ -123,30 +117,24 @@ const ChapterGrid = () => {
                 {/* Header Section with Animation Classes */}
 
                 <div className="flex flex-col items-center justify-center mb-10 space-y-6 text-center border-b border-slate-100 pb-12">
-
                     {/* Badge */}
                     <div className="header-animate inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[11px] font-black uppercase tracking-widest shadow-sm">
                         <Book size={16} /> Structured Learning Path
                     </div>
-
                     {/* Title */}
                     <h2 className="header-animate text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-[1.1] max-w-4xl">
                         Explore the <span className="text-blue-600">Curriculum.</span>
                     </h2>
-
                     {/* Description */}
                     <p className="header-animate text-slate-500 font-medium max-w-2xl text-lg md:text-xl leading-relaxed">
                         Everything you need to master HSC ICT. Pick a chapter and dive into interactive notes and board solutions.
                     </p>
-
                 </div>
 
                 {/* Chapter Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {chapterList.map((chapter) => (
-                        <div
-                            key={chapter.id}
-                            className="chapter-card group relative  rounded-[40px] overflow-hidden shadow-xl shadow-slate-100 cursor-pointer border border-slate-100"
+                        <div key={chapter.id}  className="chapter-card group relative  rounded-[40px] overflow-hidden shadow-xl shadow-slate-100 cursor-pointer border border-slate-100"
                         >
                             {/* Background Image */}
                             <div
