@@ -120,7 +120,7 @@ const Footer = () => {
                         <h4 className="text-slate-900 font-bold text-xs uppercase tracking-[0.2em] mb-8">Stay Connected</h4>
                         <div className="flex gap-4 mb-10">
                             {/* Facebook */}
-                            <Link href="#" className="social-icon w-11 h-11 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300 border border-slate-100">
+                            <Link href="https://www.facebook.com/ISLAMUL.HOQUE.ISHFAK.OFFICIAL" className="social-icon w-11 h-11 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300 border border-slate-100">
                                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                             </Link>
                             {/* Github */}
@@ -133,17 +133,17 @@ const Footer = () => {
                             </Link>
                         </div>
                         <div className="space-y-4">
-                            <a href="mailto:support@ictnexus.com" className="text-sm text-slate-500 hover:text-blue-600 flex items-center gap-3 group transition-colors">
+                            <a href="mailto:islamulhoque2006@gmail.com" className="text-sm text-slate-500 hover:text-blue-600 flex items-center gap-3 group transition-colors">
                                 <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
                                     <Mail size={16} />
                                 </div>
-                                support@ictnexus.com
+                                islamulhoque2006@gmail.com
                             </a>
                             <div className="text-sm text-slate-500 flex items-center gap-3">
                                 <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
                                     <Globe size={16} />
                                 </div>
-                                www.ictnexus.com
+                                www.islamulhoque.com
                             </div>
                         </div>
                     </div>
