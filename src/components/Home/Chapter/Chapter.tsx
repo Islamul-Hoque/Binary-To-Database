@@ -14,7 +14,7 @@ const chapterList = [
         title: "Information & Tech",
         icon: <Info size={28} />,
         lessons: "12 Lessons",
-        bgImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80",
+        bgImage: "/information.png",
         color: "from-blue-600/80 to-indigo-900/90"
     },
     {
@@ -22,7 +22,7 @@ const chapterList = [
         title: "Communication Systems",
         icon: <Globe size={28} />,
         lessons: "15 Lessons",
-        bgImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80",
+        bgImage: "/communicationSystems.png",
         color: "from-emerald-600/80 to-teal-900/90"
     },
     {
@@ -30,7 +30,7 @@ const chapterList = [
         title: "Number Systems",
         icon: <Binary size={28} />,
         lessons: "20 Lessons",
-        bgImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80",
+        bgImage: "numberSystems2.png",
         color: "from-indigo-600/80 to-purple-900/90"
     },
     {
@@ -38,7 +38,7 @@ const chapterList = [
         title: "Web Design & HTML",
         icon: <Globe size={28} />,
         lessons: "18 Lessons",
-        bgImage: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80",
+        bgImage: "/webDesign.jpg",
         color: "from-blue-500/80 to-cyan-900/90"
     },
     {
@@ -46,7 +46,8 @@ const chapterList = [
         title: "C Programming",
         icon: <Code size={28} />,
         lessons: "25 Lessons",
-        bgImage: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80",
+        // bgImage: "plash.com/photo-15158https://images.uns79218367-8466d910aaa4?auto=format&fit=crop&q=80",
+        bgImage: "/cProgramming.png",
         color: "from-rose-600/80 to-pink-900/90"
     },
     {
@@ -54,7 +55,8 @@ const chapterList = [
         title: "Database Systems",
         icon: <Database size={28} />,
         lessons: "10 Lessons",
-        bgImage: "https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80",
+        // bgImage: "https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80",
+        bgImage: "/databaseSystems.png",
         color: "from-purple-600/80 to-fuchsia-900/90"
     },
 ];

@@ -113,4 +113,4 @@ export default function NotFound() {
 }
 
 
-// feat(not-found): design animated 404 page with GSAP effects, search pulse, and modern navigation buttons
+
