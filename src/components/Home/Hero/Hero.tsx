@@ -176,7 +176,8 @@ const chapters = [
         subtitle: "The Foundation of Computing",
         desc: "Master Binary, Octal, and Hexadecimal conversions with interactive visual tools designed for HSC students.",
         icon: <Binary size={48} />,
-        bgImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80", 
+        // bgImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80", 
+        bgImage: "/numberSystems.png", 
         accent: "blue"
     },
     {
@@ -184,7 +185,8 @@ const chapters = [
         subtitle: "Logic Gates & Circuits",
         desc: "Understand how computers think. Explore Logic Gates, Encoders, and Decoders with real-time circuit simulation.",
         icon: <Cpu size={48} />,
-        bgImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80",
+        // bgImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80",
+        bgImage: "/digitalDevices.png",
         accent: "indigo"
     },
     {
@@ -192,7 +194,9 @@ const chapters = [
         subtitle: "Build the Future with HTML",
         desc: "From basic tags to professional layouts. Start your journey into the world of web technologies today.",
         icon: <Globe size={48} />,
-        bgImage: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80",
+        // bgImage: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80",
+        bgImage: "/webDesign.jpg",
+        
         accent: "emerald"
     },
     {
@@ -200,7 +204,8 @@ const chapters = [
         subtitle: "Master Problem Solving",
         desc: "Learn the core of programming. We make C syntax and logic simple through step-by-step code execution.",
         icon: <Code size={48} />,
-        bgImage: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80",
+        // bgImage: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80",
+        bgImage: "/cProgramming.png",
         accent: "orange"
     },
     {
@@ -208,7 +213,8 @@ const chapters = [
         subtitle: "Organizing & Querying Data",
         desc: "Learn how to design efficient databases and master SQL queries to manage information like a pro developer.",
         icon: <Database size={48} />,
-        bgImage: "https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80", 
+        // bgImage: "https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80", 
+        bgImage: "/databaseSystems.png", 
         accent: "purple"
     }
 ];

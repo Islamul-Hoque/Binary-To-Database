@@ -33,7 +33,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav ref={navRef} className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200">
+        <nav ref={navRef} className="fixed  top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200">
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
 
                 {/* Logo */}
