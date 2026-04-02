@@ -6,8 +6,6 @@ import {
     Hash, CheckCircle2, ClipboardList
 } from 'lucide-react';
 
-import Question2 from '../../../components/Questuin/Question2';
-
 
 const PracticePage = () => {
     const [activeTab, setActiveTab] = useState('all');
@@ -398,7 +396,7 @@ const PracticePage = () => {
         <main className="min-h-screen bg-[#fdfdfd] pt-32 pb-20 px-6">
             <div className="max-w-6xl mx-auto">
 
-<Question2 />
+
 
                 {/* --- Header & Tabs --- */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
