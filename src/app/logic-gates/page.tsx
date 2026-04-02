@@ -1,10 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-    ChevronDown, ChevronUp, Calculator, ArrowRightLeft,
-    Hash, CheckCircle2, ClipboardList
-} from 'lucide-react';
+import { ChevronDown, ChevronUp, Calculator, ArrowRightLeft, Hash, CheckCircle2, ClipboardList } from 'lucide-react';
 
 const truthTableRows = [
     { A: 0, B: 0, Y: 1 },
@@ -155,47 +152,37 @@ const PracticePage = () => {
                     <div className="space-y-3">
                         <p className="font-bold text-slate-900 border-b pb-1">NAND গেটের সাহায্যে X-NOR গেট বাস্তবায়ন:</p>
 
-                        <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 font-mono text-[14px] overflow-x-auto">
-                            <p className="mb-4">
-                                Y = AB + <span className="border-t border-slate-900 mx-0.5">A</span>.<span className="border-t border-slate-900 mx-0.5">B</span>
-                            </p>
+                        <div className="bg-slate-50 p-5 rounded-lg border border-slate-200 font-mono text-[14px] overflow-x-auto">
+                            <p className="flex items-center mb-4"> Y = <span className="border-t border-black pt-0.5 ml-2">  A ⊕ B </span> </p>
+                            <p className="mb-4"> = AB + <span className="border-t border-slate-900 mx-0.5">A</span>.<span className="border-t border-slate-900 mx-0.5">B</span> </p>
 
-                            <p className="mb-4 flex items-center">
-                                =
+                            <p className="mb-4 flex items-center"> =
                                 <span className="border-t border-slate-900 pt-0.5 ml-2">
-                                    <span className="border-t border-slate-900 pt-0.5 pb-1">AB</span>
-                                    <span className="mx-1">.</span>
-                                    <span className="border-t border-slate-900 pt-0.5">
+                                    <span className="border-t border-slate-900 pt-0.5 pb-1">AB
+                                        <span className="mx-1">+</span>
                                         <span className="border-t border-slate-900">A</span>.<span className="border-t border-slate-900">B</span>
                                     </span>
                                 </span>
                             </p>
 
-                            <p className="mb-4 flex items-center">
-                                =
-                                <span className="border-t border-slate-900 pt-0.5 ml-2">
-                                    <span className="border-t border-slate-900 pt-0.5">AB</span>
-                                    <span className="mx-1 text-[10px]">.</span>
-                                    <span className="border-t border-slate-900 pt-0.5">(A+B)</span>
-                                </span>
-                            </p>
-
-                            <p className="flex items-center">
-                                =
-                                <span className="border-t border-slate-900 pt-0.5 ml-2">
-                                    (<span className="border-t border-slate-900">A.B</span>).A
-                                    <span className="mx-1 text-[10px]">.</span>
-                                    (<span className="border-t border-slate-900">A.B</span>).B
+                            <p className="flex items-center "> =
+                                <span className="border-t border-black pt-1 ml-2 flex items-center">
+                                    <span className="border-t border-black pt-0.5">
+                                        <span className=" border-black pt-0.5">
+                                            (<span className="border-t border-black">A</span>
+                                            <span className="border-t border-black ml-0.5">B</span>)
+                                        </span>
+                                    </span>
+                                    <span className="mx-1">.</span>
+                                    <span className="border-t border-black pt-0.5">
+                                        (AB)
+                                    </span>
                                 </span>
                             </p>
                         </div>
 
                         <div className="flex justify-center py-2 bg-white rounded border border-slate-100">
-                            <img
-                                src="/logicGates/xnor-to-nand.png"
-                                alt="X-NOR using NAND Gates"
-                                className="h-auto max-w-[300px] object-contain"
-                            />
+                            <img src="/logicGates/xnor-to-nand.png" className="h-auto max-w-[300px] object-contain" alt="X-NOR using NAND Gates" />
                         </div>
                     </div>
 
@@ -203,102 +190,224 @@ const PracticePage = () => {
                     <div className="space-y-3 pt-4 border-t border-slate-100">
                         <p className="font-bold text-slate-900 border-b pb-1">NOR গেটের সাহায্যে X-NOR গেট বাস্তবায়ন:</p>
 
-                        <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 font-mono text-[14px] overflow-x-auto relative">
-                            {/* Line 1 - Y = overline{A⊕B} */}
-                            <p className="mb-4">
-                                Y = <span className="border-t border-slate-900 pt-0.5">A⊕B</span>
+                        <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 font-mono text-[14px] overflow-x-auto">
+                            {/* Line 1 */}
+                            <p className="mb-4 flex items-center">
+                                Y = <span className="border-t border-slate-900 pt-0.5 ml-1">A⊕B</span>
                             </p>
 
-                            {/* Line 2 - = AB + overline{A}.overline{B} */}
+                            {/* Line 2 */}
                             <p className="mb-4 flex items-center">
-                                =
-                                <span className="ml-2">AB + <span className="border-t border-slate-900">A</span>.<span className="border-t border-slate-900">B</span></span>
+                                = AB + <span className="border-t border-slate-900 mx-0.5">A</span>.<span className="border-t border-slate-900 mx-0.5">B</span>
                             </p>
 
-                            {/* Line 3 - = overline{overline{A}.overline{B} + overline{AB}} */}
+                            {/* Line 3 */}
                             <p className="mb-4 flex items-center">
-                                =
-                                <span className="border-t border-slate-900 pt-0.5 ml-2">
-                                    <span className="border-t border-slate-900 pt-0.5">A</span>.<span className="border-t border-slate-900 pt-0.5">B</span>
-                                    <span className="mx-1">+</span>
+                                = <span className="border-t border-slate-900 pt-0.5 ml-2">
                                     <span className="border-t border-slate-900 pt-0.5">AB</span>
                                 </span>
-                            </p>
-
-                            {/* Line 4 - = overline{overline{A}.overline{B}} + (overline{AB}) */}
-                            <p className="mb-4 flex items-center">
-                                =
-                                <span className="border-t border-slate-900 pt-0.5 ml-2">
-                                    <span className="border-t border-slate-900 pt-0.5">A</span>.<span className="border-t border-slate-900 pt-0.5">B</span>
+                                <span className="mx-2">+</span>
+                                <span className="border-t border-slate-900 pt-0.5">
+                                    <span className="border-t border-slate-900 pt-0.5">
+                                        <span className="border-t border-slate-900">A</span>.<span className="border-t border-slate-900">B</span>
+                                    </span>
                                 </span>
-                                <span className="mx-1">+</span>
-                                <span className="border-t border-slate-900 pt-0.5">(AB)</span>
                             </p>
 
-                            {/* Line 5 - = (A+B) + overline{A}.overline{B} */}
-                            <p className="mb-4 flex items-center">
-                                =
-                                <span className="ml-2">(A + B) + <span className="border-t border-slate-900">A</span>.<span className="border-t border-slate-900">B</span></span>
-                            </p>
+                            {/* Line 4 */}
+                            <p className="mb-4 flex items-center">=
+                                <span className="border-t border-slate-900 pt-0.5 ml-2">
+                                    <span className="border-t border-slate-900 pt-0.5">A</span> + <span className="border-t border-slate-900 pt-0.5">B</span>
+                                </span>
+                                <span className="mx-2">+</span>
 
-                            {/* Line 6 - = overline{overline{overline{A+B}} + overline{overline{overline{A}+overline{B}}}} */}
-                            <p className="flex items-center">
-                                =
-                                <span className="border-t border-slate-900 pt-1 border-t-2 decoration-indigo-200 ml-2">
-                                    <span className="border-t border-slate-900 border-t-2 pt-0.5">
+                                <span className="border-t border-slate-900 pt-0.5 flex items-center">
+                                    <span className="flex flex-col items-center">
                                         <span className="border-t border-slate-900 pt-0.5">
-                                            <span className="border-t border-slate-900">A+B</span>
+                                            <span className="border-t border-slate-900 px-1">A</span>
                                         </span>
                                     </span>
                                     <span className="mx-1">+</span>
-                                    <span className="border-t border-slate-900 border-t-2 pt-0.5 border-t-emerald-600/50">
-                                        <span className="border-t border-slate-900 pt-0.5 border-t-emerald-600/50">
-                                            <span className="border-t border-slate-900 border-t-emerald-600">A</span> + <span className="border-t border-slate-900 border-t-emerald-600">B</span>
+                                    <span className="flex flex-col items-center">
+                                        <span className="border-t border-slate-900 pt-0.5">
+                                            <span className="border-t border-slate-900 px-1">B</span>
                                         </span>
+                                    </span>
+                                </span>
+                            </p>
+
+                            {/* Line 5  */}
+                            <p className="mb-4 flex items-center">
+                                = <span className="border-t border-slate-900 pt-0.5 ml-2">
+                                    <span className="border-t border-slate-900">A</span> + <span className="border-t border-slate-900">B</span>
+                                </span>
+                                <span className="mx-1">+</span>
+                                <span className="border-t border-slate-900 pt-0.5 ml-1">A + B</span>
+                            </p>
+
+                            {/* Line 6  */}
+                            <p className="flex items-center">
+                                = <span className="border-t border-slate-900 pt-0.5 ml-2">
+                                    <span className="border-t border-slate-900 pt-0.5 flex items-center">
+
+                                        <span className="border-t border-slate-900 pt-0.5">
+                                            <span className="border-t border-slate-900 pt-0.5">A</span> + <span className="border-t border-slate-900 pt-0.5">B</span>
+                                        </span>
+                                        <span className="mx-1">+</span>
+
+                                        <span className="border-t border-slate-900 pt-0.5">A + B</span>
                                     </span>
                                 </span>
                             </p>
                         </div>
 
                         <div className="flex justify-center py-2 bg-white rounded border border-slate-100">
-                            <img
-                                src="/logicGates/x-nor-nor.png"
-                                alt="X-NOR using NOR Gates"
-                                className="h-auto max-w-[300px] object-contain"
-                            />
+                            <img src="/logicGates/x-nor-nor.png" className="h-auto max-w-[300px] object-contain" alt="X-NOR using NOR Gates" />
                         </div>
+                    </div>
+
+
+
+                </div>
+            )
+        },
+
+        {
+            id: 4,
+            q: "(iv) চিত্র-২ হতে আউটপুট Y এর মান সত্যক সারণিতে দেখাও।",
+            ans: (
+                <div className="space-y-6 text-[13px] text-slate-700">
+                    {/* শুরুতে লজিক গেট ইমেজ সেকশন */}
+                    <p className= "mt-2 ">চিত্র-২: আউটপুট Y এর জন্য লজিক গেট</p>
+                    <div className="flex flex-col items-center">
+                        
+                        <img
+                            src="/logicGates/logic-gate-y.png"
+                            alt="Logic Gate Diagram"
+                            className="max-w-full h-auto rounded shadow-sm border border-slate-200"
+                        />
+                        
+                    </div>
+
+                   
+                    <div className="space-y-2 font-mono">
+                        <p className="font-bold text-slate-900 mb-3 text-[14px]">আউটপুট, Y এর সরলীকরণ:</p>
+
+                        {/* Line 1 */}
+                        <p className="flex items-center">
+                            Y = <span className="border-t border-slate-900 pt-0.5 ml-1">
+                                <span className="border-t border-slate-900 pt-0.5">A</span>.B
+                            </span>
+                            <span className="mx-3">+</span>
+                            <span className="border-t border-slate-900 pt-0.5">
+                                A.<span className="border-t border-slate-900 pt-0.5">B</span>
+                            </span>
+                        </p>
+
+                        {/* Line 2 */}
+                        <p className="flex items-center">
+                            =
+                            <span className="flex flex-col items-center">
+                                <span className="border-t border-slate-900 pt-0.5">
+                                    <span className="border-t border-slate-900 px-1">A</span>
+                                </span>
+                            </span>
+                            <span className="mx-1">+</span>
+                            <span className="border-t border-slate-900 pt-0.5">B</span>
+                            <span className="mx-3">+</span>
+                            <span className="border-t border-slate-900 pt-0.5">A</span>
+                            <span className="mx-1">+</span>
+                            <span className="flex flex-col items-center">
+                                <span className="border-t border-slate-900 pt-0.5">
+                                    <span className="border-t border-slate-900 px-1">B</span>
+                                </span>
+                            </span>
+
+                        </p>
+
+                        {/* Line 3 */}
+                        <p className="flex items-center">
+                            = A + <span className="border-t border-slate-900 pt-0.5">B</span>
+                            <span className="mx-3">+</span>
+                            <span className="border-t border-slate-900 pt-0.5">A</span> + B
+                        </p>
+
+                        {/* Line 4 */}
+                        <p className="flex items-center">
+                            = (A + <span className="border-t border-slate-900 pt-0.5">A</span>)
+                            <span className="mx-3">+</span>
+                            (B + <span className="border-t border-slate-900 pt-0.5">B</span>)
+                        </p>
+
+                        <p>= 1 + 1</p>
+                        <p className="font-bold text-slate-900">= 1</p>
+                        <p className="mt-2 text-slate-600 italic font-sans text-[12px]">অর্থাৎ, A, B তে ইনপুট যাই দেওয়া হোক না কেন, আউটপুট সবসময় ১ আসবে।</p>
+                    </div>
+
+                    <div>
+                        <p className="font-bold mb-3 text-slate-900 text-[14px]">সত্যক সারণি:</p>
+                        <div className="overflow-x-auto">
+                            <table className="min-w-full border-collapse border border-slate-300 text-center">
+                                <thead className="bg-slate-100">
+                                    <tr className="text-slate-500 text-[11px]">
+                                        <th colSpan="6" className="border border-slate-300 p-1">input</th>
+
+                                        <th className="border border-slate-300 p-1 bg-blue-50">output</th>
+                                    </tr>
+                                    <tr className="bg-slate-50">
+                                        <th className="border border-slate-300 p-2">A</th>
+                                        <th className="border border-slate-300 p-2">B</th>
+                                        <th className="border border-slate-300 p-2"><span className="border-t border-slate-900">A</span></th>
+                                        <th className="border border-slate-300 p-2"><span className="border-t border-slate-900">B</span></th>
+
+                                        <th className="border border-slate-300 p-2 font-mono text-[10px]">
+                                            <span className="border-t border-slate-900 pt-0.5">
+                                                <span className="border-t border-slate-900">A</span>.B
+                                            </span>
+                                        </th>
+                                        <th className="border border-slate-300 p-2 font-mono text-[10px]">
+                                            <span className="border-t border-slate-900 pt-0.5">
+                                                A.<span className="border-t border-slate-900">B</span>
+                                            </span>
+                                        </th>
+
+                                        <th className="border border-slate-300 p-2 bg-blue-50 font-mono text-[10px] text-blue-700">
+                                            Y = <span className="border-t border-slate-900 pt-0.5">
+                                                <span className="border-t border-slate-900">A</span>.B
+                                            </span>
+                                            <span> + </span>
+                                            <span className="border-t border-slate-900 pt-0.5">
+                                                A.<span className="border-t border-slate-900">B</span>
+                                            </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    {[
+                                        [0, 0, 1, 1, 1, 1, 1],
+                                        [0, 1, 1, 0, 0, 1, 1],
+                                        [1, 0, 0, 1, 1, 0, 1],
+                                        [1, 1, 0, 0, 1, 1, 1]
+                                    ].map((row, idx) => (
+                                        <tr key={idx} className="hover:bg-slate-50/50">
+                                            {row.map((cell, i) => (
+                                                <td key={i} className={`border border-slate-300 p-2 ${i === 6 ? 'bg-blue-50/30 font-bold text-blue-600' : ''}`}>
+                                                    {cell}
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <p className="mt-3 text-slate-600 text-[12px]">সুতরাং, সত্যক সারণি হতেও দেখা যাচ্ছে, ইনপুট যাই দেওয়া হোক না কেন প্রতিবারই আউটপুট ১ আসছে।</p>
                     </div>
                 </div>
             )
         }
 
-
-
         ,
-        {
-            id: 4,
-            q: "(iv) চিত্র-২ হতে আউটপুট Y এর মান সত্যক সারণিতে দেখাও।",
-            ans: (
-                <div className="space-y-4 text-[13px] text-slate-700">
-                    <p className="font-bold mb-2 text-slate-900">Y = A + B (OR Gate) এর সত্যক সারণি:</p>
-                    <table className="min-w-[180px] border-collapse border border-slate-300 text-center">
-                        <thead className="bg-slate-100">
-                            <tr>
-                                <th className="border border-slate-300 p-1">A</th>
-                                <th className="border border-slate-300 p-1">B</th>
-                                <th className="border border-slate-300 p-1">Y</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td className="border border-slate-300 p-1">0</td><td className="border border-slate-300 p-1">0</td><td className="border border-slate-300 p-1">0</td></tr>
-                            <tr><td className="border border-slate-300 p-1">0</td><td className="border border-slate-300 p-1">1</td><td className="border border-slate-300 p-1">1</td></tr>
-                            <tr><td className="border border-slate-300 p-1">1</td><td className="border border-slate-300 p-1">0</td><td className="border border-slate-300 p-1">1</td></tr>
-                            <tr><td className="border border-slate-300 p-1">1</td><td className="border border-slate-300 p-1">1</td><td className="border border-slate-300 p-1">1</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            )
-        },
         {
             id: 5,
             q: "(v) চিত্র-২ এর আউটপুট F এর মান নির্ণয় কর এবং সরলীকরণ করে নতুন লজিক গেট আঁক।",
@@ -420,8 +529,6 @@ const PracticePage = () => {
         <main className="min-h-screen bg-[#fdfdfd] pt-32 pb-20 px-6">
             <div className="max-w-6xl mx-auto">
 
-
-
                 {/* --- Header & Tabs --- */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                     <div className="space-y-2">
@@ -446,9 +553,6 @@ const PracticePage = () => {
                         <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-10">
 
                             {/* উদ্দীপক */}
-
-
-
                             <div className="max-w-6xl mx-auto space-y-16">
 
                                 {/* Header */}
