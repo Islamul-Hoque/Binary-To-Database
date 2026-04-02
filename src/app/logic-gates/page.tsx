@@ -278,18 +278,18 @@ const PracticePage = () => {
             ans: (
                 <div className="space-y-6 text-[13px] text-slate-700">
                     {/* শুরুতে লজিক গেট ইমেজ সেকশন */}
-                    <p className= "mt-2 ">চিত্র-২: আউটপুট Y এর জন্য লজিক গেট</p>
+                    <p className="mt-2 ">চিত্র-২: আউটপুট Y এর জন্য লজিক গেট</p>
                     <div className="flex flex-col items-center">
-                        
+
                         <img
                             src="/logicGates/logic-gate-y.png"
                             alt="Logic Gate Diagram"
                             className="max-w-full h-auto rounded shadow-sm border border-slate-200"
                         />
-                        
+
                     </div>
 
-                   
+
                     <div className="space-y-2 font-mono">
                         <p className="font-bold text-slate-900 mb-3 text-[14px]">আউটপুট, Y এর সরলীকরণ:</p>
 
@@ -383,7 +383,7 @@ const PracticePage = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+
                                     {[
                                         [0, 0, 1, 1, 1, 1, 1],
                                         [0, 1, 1, 0, 0, 1, 1],
@@ -412,18 +412,56 @@ const PracticePage = () => {
             id: 5,
             q: "(v) চিত্র-২ এর আউটপুট F এর মান নির্ণয় কর এবং সরলীকরণ করে নতুন লজিক গেট আঁক।",
             ans: (
-                <div className="space-y-4 text-[13px] text-slate-700 font-mono">
-                    <p className="font-sans font-bold">সরলীকরণ প্রক্রিয়া:</p>
-                    <div className="pl-4 border-l-2 border-emerald-400 py-1">
-                        <p>F = A + AB</p>
-                        <p>= A(1 + B)</p>
-                        <p>= A · 1</p>
-                        <p>= A</p>
+                <div className="space-y-6 text-[13px] text-slate-700 font-mono">
+                    <div className="space-y-3">
+                        <p className="font-sans font-bold text-slate-900 mb-3"> চিত্র-২ হতে আউটপুট F এর জন্য লজিক গেট-     </p>
+                        <div className="bg-white p-4 border border-slate-200 rounded-lg inline-block">
+                            <img  src="/q-v/q-v.png"    alt="AND Gate AC"    />
+                        </div>
                     </div>
-                    <p className="font-sans text-slate-600 italic">নতুন লজিক গেটটি হবে একটি Buffer বা সরাসরি সংযোগ।</p>
+
+                    <div className="space-y-4">
+                        <div className="pl-4 border-l-2 border-emerald-400 py-1 space-y-2">
+                            <p className="flex items-center">
+                                আউটপুট, f = (A + B) . (A + <span className="border-t border-slate-900 pt-0.5">B</span>) . (<span className="border-t border-slate-900 pt-0.5">A</span> + C)
+                            </p>
+                            <p className="flex items-center">
+                                = (A.A + A.<span className="border-t border-slate-900 pt-0.5">B</span> + B.A + B.<span className="border-t border-slate-900 pt-0.5">B</span>) . (<span className="border-t border-slate-900 pt-0.5">A</span> + C)
+                            </p>
+                            <p className="flex items-center">
+                                = (A + A.<span className="border-t border-slate-900 pt-0.5">B</span> + A.B + 0) . (<span className="border-t border-slate-900 pt-0.5">A</span> + C)
+                            </p>
+                            <p className="flex items-center">
+                                = (A(1 + <span className="border-t border-slate-900 pt-0.5">B</span>) + A.B) . (<span className="border-t border-slate-900 pt-0.5">A</span> + C)
+                            </p>
+                            <p className="flex items-center">
+                                = (A.1 + A.B) . (<span className="border-t border-slate-900 pt-0.5">A</span> + C)
+                            </p>
+                            <p className="flex items-center">
+                                = A(1 + B) . (<span className="border-t border-slate-900 pt-0.5">A</span> + C)
+                            </p>
+                            <p className="flex items-center">
+                                = A . (<span className="border-t border-slate-900 pt-0.5">A</span> + C)
+                            </p>
+                            <p className="flex items-center">
+                                = A.<span className="border-t border-slate-900 pt-0.5">A</span> + A.C
+                            </p>
+                            <p>= 0 + A.C</p>
+                            <p className="font-bold text-blue-600 text-base">= AC</p>
+                        </div>
+                    </div>
+                    {/* Logic Gate Diagram */}
+                    <p className="font-sans font-bold text-slate-900 mb-3"> সরলীকৃত সঠিক গোটঃ  </p>
+                    <div className="flex justify-center">
+                        <img src="/q-v/y-ac.png" className="max-w-[280px] h-auto rounded shadow-sm border border-slate-200" alt="Simplified Logic Gate (AND gate with A and C inputs)" />
+                    </div>
+                    <p className="font-sans text-slate-600 italic">
+                        সুতরাং, নতুন লজিক গেটে ইনপুট হিসেবে A এবং C নিয়ে একটি AND gate ব্যবহার করলেই F এর আউটপুট পাওয়া সম্ভব।
+                    </p>
                 </div>
             )
-        },
+        }
+        ,
         {
             id: 6,
             q: "(vi) চিত্র-২ এ ২ ও ৩ নং চিহ্নিত গেটগুলোর পারস্পরিক পরিবর্তনে প্রাপ্ত Y এর মান সত্যক সারণিতে দেখাও।",
