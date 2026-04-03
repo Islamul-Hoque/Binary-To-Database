@@ -141,7 +141,6 @@ const PracticePage = () => {
                 </div>
             )
         },
-
         {
             id: 3,
             q: "(iii) চিত্র-১ এর গেটটিকে NAND এবং NOR গেটের সাহায্যে বাস্তবায়ন কর এবং লজিক গেট আঁক।",
@@ -271,7 +270,6 @@ const PracticePage = () => {
                 </div>
             )
         },
-
         {
             id: 4,
             q: "(iv) চিত্র-২ হতে আউটপুট Y এর মান সত্যক সারণিতে দেখাও।",
@@ -350,7 +348,7 @@ const PracticePage = () => {
                             <table className="min-w-full border-collapse border border-slate-300 text-center">
                                 <thead className="bg-slate-100">
                                     <tr className="text-slate-500 text-[11px]">
-                                        <th colSpan="6" className="border border-slate-300 p-1">input</th>
+                                        <th colSpan={6} className="border border-slate-300 p-1">input</th>
 
                                         <th className="border border-slate-300 p-1 bg-blue-50">output</th>
                                     </tr>
@@ -405,9 +403,7 @@ const PracticePage = () => {
                     </div>
                 </div>
             )
-        }
-
-        ,
+        },
         {
             id: 5,
             q: "(v) চিত্র-২ এর আউটপুট F এর মান নির্ণয় কর এবং সরলীকরণ করে নতুন লজিক গেট আঁক।",
@@ -416,7 +412,7 @@ const PracticePage = () => {
                     <div className="space-y-3">
                         <p className="font-sans font-bold text-slate-900 mb-3"> চিত্র-২ হতে আউটপুট F এর জন্য লজিক গেট-     </p>
                         <div className="bg-white p-4 border border-slate-200 rounded-lg inline-block">
-                            <img  src="/q-v/q-v.png"    alt="AND Gate AC"    />
+                            <img src="/q-v/q-v.png" alt="AND Gate AC" />
                         </div>
                     </div>
 
@@ -460,19 +456,69 @@ const PracticePage = () => {
                     </p>
                 </div>
             )
-        }
-        ,
+        },
         {
             id: 6,
             q: "(vi) চিত্র-২ এ ২ ও ৩ নং চিহ্নিত গেটগুলোর পারস্পরিক পরিবর্তনে প্রাপ্ত Y এর মান সত্যক সারণিতে দেখাও।",
             ans: (
-                <div className="space-y-4 text-[13px] text-slate-700">
-                    <p>গেটগুলো পরিবর্তনের পর প্রাপ্ত সমীকরণ যদি <span className="font-mono font-bold text-rose-600">Y = (A·B)'</span> (NAND) হয়:</p>
-                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 w-fit">
-                        <p className="font-mono">A=0, B=0 → Y=1</p>
-                        <p className="font-mono">A=1, B=1 → Y=0</p>
+                <div className="space-y-6 text-[13px] text-slate-700 font-mono">
+                    {/* Logic Gate Diagram */}
+                    <p className="font-sans  text-slate-900 mb-3"> চিত্র-২ এ ২ নং চিহ্নিত গেট হলো NAND গেট এবং ৩ নং চিহ্নিত গেট হলো OR গেট।   চিত্রের ২ ও ৩ নং গেটগুলোর পারস্পরিক পরিবর্তনে যে লজিক গেটটি পাওয়া যায় তা নিচে আঁকা হলো: </p>
+
+                    <div className="flex ">
+                        <img src="/q6/q6.png" className=" h-auto rounded shadow-sm border border-slate-200" alt="Logic Gate Diagram for Y" />
                     </div>
-                    <p>এটি প্রমাণ করে যে গেট পরিবর্তনের ফলে আউটপুট সম্পূর্ণ বিপরীত হয়ে যায়।</p>
+
+                    {/* Simplification Steps */}
+                    <p className="font-sans font-bold">আউটপুটের সরলীকরণ:</p>
+                    <div className="pl-4 border-l-2 border-emerald-400 py-1 space-y-2">
+                        <p>  Y = <span className="border-t border-slate-900 pt-0.5">( <span className="border-t border-slate-900">A</span> + B) · (A + <span className="border-t border-slate-900">B</span>) </span> </p>
+                        <p className="flex items-center">  = <span className="border-t border-slate-900 pt-0.5"> ( <span className="border-t border-slate-900">A</span> + B ) </span> + <span className="border-t border-slate-900 pt-0.5"> ( A + <span className="border-t border-slate-900">B</span> ) </span> </p>
+                        <p className="flex items-center">  = <span className="border-t border-slate-900"><span className="border-t border-slate-900">A</span></span>·<span className="border-t border-slate-900">B</span>  <span className='mx-2'>+</span> <span className="border-t border-slate-900">A</span>·<span className="border-t border-slate-900"><span className="border-t border-slate-900">B</span></span>
+                        </p>
+                        <p>= A.<span className="border-t border-slate-900">B</span>  <span className='mx-1'>+</span> <span className="border-t border-slate-900">A</span>.B </p>
+                        <p>=  <span className="border-t border-slate-900">A</span>.B <span className='mx-1'>+</span> A.<span className="border-t border-slate-900">B</span>  </p>
+                        <p className="font-bold text-blue-600 text-base"> = A ⊕ B </p>
+                    </div>
+
+                    {/* Truth Table */}
+                    <p className="font-sans text-slate-700 italic">  সুতরাং, লজিক গেটটির আউটপুট X-OR গেটের ন্যায় হওয়ায় সত্যক সারণিও X-OR গেটের ন্যায় হবে।   </p>
+                    <p className="font-sans font-bold text-slate-900 mb-3">সত্যক সারণি:</p>
+                    <div className="overflow-x-auto">
+                        <table className="min-w-full border-collapse border border-slate-300 text-center">
+                            <thead className="bg-slate-100">
+                                <tr className="text-slate-500 text-[11px]">
+                                    <th colSpan={6} className="border border-slate-300 p-1">input</th>
+                                    <th className="border border-slate-300 p-1 bg-blue-50">output</th>
+                                </tr>
+                                <tr className="bg-slate-50">
+                                    <th className="border border-slate-300 p-2">A</th>
+                                    <th className="border border-slate-300 p-2">B</th>
+                                    <th className="border border-slate-300 p-2"><span className="border-t border-slate-900">A</span></th>
+                                    <th className="border border-slate-300 p-2"><span className="border-t border-slate-900">B</span></th>
+                                    <th className="border border-slate-300 p-2 "><span className="border-t border-slate-900">A</span>.B</th>
+                                    <th className="border border-slate-300 p-2">A.<span className="border-t border-slate-900">B</span></th>
+                                    <th className="border border-slate-300 p-2 bg-blue-50 font-mono text-[10px] text-blue-700">Y = A ⊕ B</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    [0, 0, 1, 1, 0, 0, 0],
+                                    [0, 1, 1, 0, 1, 0, 1],
+                                    [1, 0, 0, 1, 0, 1, 1],
+                                    [1, 1, 0, 0, 0, 0, 0]
+                                ].map((row, idx) => (
+                                    <tr key={idx} className="hover:bg-slate-50/50">
+                                        {row.map((cell, i) => (
+                                            <td key={i} className={`border border-slate-300 p-2 ${i === 6 ? 'bg-blue-50/30 font-bold text-blue-600' : ''}`}>
+                                                {cell}
+                                            </td>
+                                        ))}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             )
         },
@@ -480,24 +526,151 @@ const PracticePage = () => {
             id: 7,
             q: "(vii) ‘vi’ নং প্রাপ্ত গেটটির (Y) মান NAND এবং NOR গেটের সাহায্যে বাস্তবায়ন কর।",
             ans: (
-                <div className="space-y-3 text-[13px] text-slate-700">
-                    <p>প্রাপ্ত গেটটি NAND হলে, এটি নিজেই একটি NAND গেট।</p>
-                    <p className="font-bold underline">NOR গেট দিয়ে NAND বাস্তবায়ন:</p>
-                    <p className="font-mono">Y = ((A+A)' + (B+B)')'</p>
-                    <p>এক্ষেত্রে মোট ৪টি NOR গেট প্রয়োজন হয়।</p>
+                <div className="space-y-6 text-[13px] text-slate-700 font-mono">
+                    {/* Heading */}
+                    <p className="font-sans  text-slate-900">
+                        “vi” হতে পাই, Y = A <span className='text-[1.14rem]'>⊕</span> B, যা X-OR গেটের আউটপুট। নিচে Y-কে NAND এবং NOR গেটের সাহায্যে বাস্তবায়ন করা হয়েছে।
+                    </p>
+
+                    {/* NAND Implementation */}
+                    <p className="font-sans font-bold underline">NAND এর সাহায্যে বাস্তবায়নঃ</p>
+                    <div className="pl-4 border-l-2 border-emerald-400 space-y-2">
+                        <p>A ⊕ B</p>
+                        <p className="flex items-center">  = <span >  <span className="border-t border-slate-900">A</span>·B + A·<span className="border-t border-slate-900">B</span>    </span>
+                        </p>
+
+                        <p className="flex items-center">
+                            = <span className="border-t border-slate-900 pt-0.5">
+                                <span className="border-t pt-0.5 border-slate-900">
+                                    <span className="border-t border-slate-900">A</span>·B + A·<span className="border-t border-slate-900">B</span>
+                                </span>
+                            </span>
+                        </p>
+
+                        <p className="flex items-center ">
+                            = <span className="border-t border-slate-900 pt-0.5">
+                                <span className="flex gap-2 items-center">
+                                    <span className="border-t border-slate-900 pt-0.5">
+                                        <span className="border-t border-slate-900">A.</span>B
+                                    </span>
+                                    <span className="pb-1">.</span>
+                                    <span className="border-t border-slate-900 pt-0.5">
+                                        A.<span className="border-t border-slate-900">B</span>
+                                    </span>
+
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div className="flex justify-center">
+                        <img src="/q7/xor-to-nand.png" alt="NAND Implementation of XOR" className="max-w-[320px] h-auto rounded shadow-sm border border-slate-200" />
+                    </div>
+
+                    {/* NOR Implementation */}
+                    <p className="font-sans font-bold underline">NOR এর সাহায্যে বাস্তবায়নঃ</p>
+                    <div className="pl-4 border-l-2 border-rose-400 space-y-3 font-mono text-xl">
+                        <p>A ⊕ B</p>
+                        {/* Line 2: ĀB + AB̄ */}
+                        <p>  = <span className="border-t border-slate-900">A</span>B + A<span className="border-t border-slate-900">B</span>      </p>
+
+                        {/* Line 3: Triple/Double bar structure for (ĀB + AB̄) */}
+                        <p className="flex items-center ">
+                            <span className='pr-2'>  =</span> <div className="flex gap-4  items-center">
+                                <span className="border-t border-slate-900 pt-0.5">
+                                    <span className="border-t border-slate-900 pt-0.5">
+                                        <span className="border-t border-slate-900">A.</span>B
+                                    </span>
+                                </span>
+                                <span className="text-xl">+</span>
+                                <span className="border-t border-slate-900 pt-0.5">
+                                    <span className="border-t border-slate-900 pt-0.5">
+                                        A<span className="border-t border-slate-900">.B</span>
+                                    </span>
+                                </span>
+                            </div>
+                        </p>
+
+                        {/* Line 4:  */}
+                        <p className="flex items-center">  =
+                            <span className="flex gap-1 items-center">
+                                <span className='border-t border-slate-900 pt-0.5'>
+                                    <span className="border-t border-slate-900 pt-0.5">
+                                        <span className="border-t border-slate-900">A</span>
+                                    </span>
+                                    + <span className="border-t border-slate-900 pt-0.5">B</span>
+                                </span> +
+
+                                <span className='border-t border-slate-900 pt-0.5'>
+                                    <span className="border-t border-slate-900 pt-0.5">
+                                        <span className="border-t border-slate-900">B</span>
+                                    </span>
+                                    + <span className="border-t border-slate-900">A</span>
+                                </span>
+                            </span>
+                        </p>
+
+                        {/* Line 5: Final Output */}
+                        <p className="flex items-center">
+                            =
+                            <span className='border-t border-slate-900 pt-1'>
+                                <span className='border-t border-slate-900 pt-0.5'>
+                                    <span className="flex gap-1 items-center">
+                                        <span className='border-t border-slate-900 pt-1'>
+                                            A  + <span className="border-t border-slate-900 pt-0.5">B</span>
+                                        </span>
+                                        <span className='px-1'>+</span>
+
+                                        <span className='border-t border-slate-900 pt-1'>
+                                            <span className="border-t border-slate-900">A</span>
+                                            + B </span>
+                                    </span>
+                                </span>
+                            </span>
+                        </p>
+
+
+
+                    </div>
+                    <div className="flex justify-center">
+                        <img src="/q7/xor-to-nor.png" alt="NOR Implementation of XOR" className="max-w-[320px] h-auto rounded shadow-sm border border-slate-200" />
+                    </div>
                 </div>
             )
         },
+
         {
             id: 8,
             q: "(viii) চিত্র-4 এর ডিভাইসটিকে মৌলিক গেটের সাহায্যে প্রকাশ কর এবং লজিক গেট আঁকন কর।",
             ans: (
                 <div className="space-y-4 text-[13px] text-slate-700">
-                    <p>চিত্র-৪ একটি **Decoder** হলে এর আউটপুট মৌলিক গেট (AND ও NOT) দিয়ে প্রকাশ করা হয়।</p>
-                    <p className="font-mono font-bold bg-indigo-50 p-2 text-indigo-700 inline-block rounded">D₀ = ĀḂ, D₁ = ĀB, D₂ = AḂ, D₃ = AB</p>
+                    <p>  চিত্র-৪ এর ডিজাইনটি হলো একটি ফুল অ্যাডার। ফুল অ্যাডারের ২টি আউটপুট হয় — একটি যোগফল (Sum) এবং একটি ক্যারি (Carry)।  আউটপুট দুইটির লজিক ফাংশন নিচে প্রকাশ করা হলো:  </p>
+
+                    <div className="space-y-2 font-mono bg-indigo-50 p-3 text-indigo-800 rounded">
+                        <p className="font-bold border-b border-indigo-200 pb-1">লজিক ফাংশন:</p>
+                        <p>
+                            S = <span className="border-t border-indigo-800">A</span>.<span className="border-t border-indigo-800">B</span>.Cᵢ +
+                            <span className="border-t border-indigo-800">A</span>.B.<span className="border-t border-indigo-800">Cᵢ</span> +
+                            A.<span className="border-t border-indigo-800">B</span>.<span className="border-t border-indigo-800">Cᵢ</span> + A.B.Cᵢ
+                        </p>
+                        <p>
+                            C = AB + BCᵢ + ACᵢ
+                        </p>
+                    </div>
+
+                    <div className="mt-4">
+                        <p className="mb-2 font-semibold">   নিচে মৌলিক গেটের সাহায্যে ফুল অ্যাডার বাস্তবায়ন করা হলো: </p>
+
+                        <img
+                            src="/q8/q8.png"
+                            alt="Full Adder using basic gates"
+                            className="w-full max-w-md border rounded-lg shadow-sm"
+                        />
+                    </div>
                 </div>
             )
-        },
+        }
+
+        ,
         {
             id: 9,
             q: "(ix) চিত্র-3 এর ডিভাইসটি কী? গঠন ব্যাখ্যা কর।",
@@ -612,7 +785,7 @@ const PracticePage = () => {
 
                                     {/* Figure-1: Truth Table */}
                                     <div className="bg-white rounded-[32px] shadow-lg p-6 border border-slate-200">
-                                        <h3 className="text-lg font-bold text-slate-800 mb-4 text-center">চিত্র-১: Truth Table</h3>
+                                        <h3 className="text-lg font-bold text-slate-800 mb-4 text-center">চিত্র-1: Truth Table</h3>
                                         <table className="w-full border-collapse font-mono text-sm">
                                             <thead>
                                                 <tr className="bg-slate-100 text-slate-700">
@@ -635,7 +808,7 @@ const PracticePage = () => {
 
                                     {/* Figure-2: Logic gate */}
                                     <div className="bg-white rounded-[32px] shadow-lg p-6 border border-slate-200 flex flex-col items-center">
-                                        <h3 className="text-lg font-bold text-slate-800 mb-4">চিত্র-৩: Block Diagram</h3>
+                                        <h3 className="text-lg font-bold text-slate-800 mb-4">চিত্র-2: Block Diagram</h3>
                                         <img src="/logicGate.png" className="" alt="" />
                                     </div>
 

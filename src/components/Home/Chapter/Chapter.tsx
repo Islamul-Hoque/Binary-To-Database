@@ -68,21 +68,22 @@ const ChapterGrid = () => {
     useEffect(() => {
         const ctx = gsap.context(() => {
             
-            gsap.utils.toArray(".chapter-card").forEach((card, i) => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card, 
-                        start: "top 90%", 
-                        toggleActions: "restart none none reverse",
-                    },
-                    y: 80,
-                    opacity: 0,
-                    scale: 0.85,
-                    duration: 0.8,
-                    delay: i % 3 * 0.15, 
-                    ease: "power4.out",
-                });
-            });
+           gsap.utils.toArray(".chapter-card").forEach((card, i) => {
+  gsap.from(card as Element, {
+    scrollTrigger: {
+      trigger: card as Element,
+      start: "top 90%",
+      toggleActions: "restart none none reverse",
+    },
+    y: 80,
+    opacity: 0,
+    scale: 0.85,
+    duration: 0.8,
+    delay: (i % 3) * 0.15,
+    ease: "power4.out",
+  });
+});
+
 
             
             gsap.from(".header-animate", {

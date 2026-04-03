@@ -239,8 +239,7 @@ export default function BinaryToOthers() {
                     <div className="flex flex-wrap justify-center gap-3 bg-white p-2 rounded-[30px] border border-slate-100 shadow-sm">
                         {mainTabs.map((tab) => (
                             <button
-                                key={tab.id}
-                                onClick={() => { setMainType(tab.id); setSubFilter("all"); }}
+                                key={tab.id}  onClick={() => { setMainType(tab.id); setActiveTab("all"); }}
                                 className={`px-8 py-3 rounded-[22px] text-sm font-black transition-all ${
                                     mainType === tab.id 
                                     ? "bg-slate-950 text-white shadow-xl scale-105" 
