@@ -647,7 +647,7 @@ const PracticePage = () => {
                     <div className="space-y-2 font-mono bg-indigo-50 p-3 text-indigo-800 rounded">
                         <p className="font-bold border-b border-indigo-200 pb-1">লজিক ফাংশন:</p>
                         <div className="space-y-2 font-mono text-lg text-slate-800 bg-indigo-50/50 p-4 rounded-lg">
-                            
+
                             <p className="flex flex-wrap items-center gap-1">
                                 <span className="font-bold">S</span> =
                                 <span className="border-t border-slate-900">A</span>.<span className="border-t border-slate-900">B</span>.Cᵢ +
@@ -681,19 +681,81 @@ const PracticePage = () => {
 
                     <div className="mt-4">
                         <p className="mb-2 font-semibold">   নিচে মৌলিক গেটের সাহায্যে ফুল অ্যাডার বাস্তবায়ন করা হলো: </p>
-                        <img  src="/q8/q8.png"  className="w-full max-w-md border rounded-lg shadow-sm"     alt="Full Adder using basic gates"  />
+                        <img src="/q8/q8.png" className="w-full max-w-md border rounded-lg shadow-sm" alt="Full Adder using basic gates" />
                     </div>
                 </div>
             )
         },
-        
         {
             id: 9,
             q: "(ix) চিত্র-3 এর ডিভাইসটি কী? গঠন ব্যাখ্যা কর।",
             ans: (
                 <div className="space-y-4 text-[13px] text-slate-700">
-                    <p className="font-bold text-slate-900">এটি একটি এনকোডার (Encoder)।</p>
-                    <p>গঠন: এটিতে 2ⁿ সংখ্যক ইনপুট এবং n সংখ্যক আউটপুট থাকে। এটি মূলত OR গেটের সমন্বয়ে গঠিত একটি ডিজিটাল সার্কিট।</p>
+                    <div className="space-y-4 text-[13px] text-slate-700 leading-relaxed text-justify">
+                        <p>
+                            <span className="font-bold">চিত্র-৩</span> এর ডিভাইসটি হলো <span className="border border-rose-500 px-1 rounded text-rose-600 font-bold">ডিকোডার</span>। কারণ, ডিকোডারে N সংখ্যক ইনপুট এর জন্য 2<sup>N</sup> সংখ্যক আউটপুট পাওয়া যায়। নিচে 2 to 4 ডিকোডারের গঠন আলোচনা করা হলো :
+                        </p>
+                        <p>   2 to 4 ডিকোডার ডিজিটাল লজিক সার্কিটে 2 সংখ্যক ইনপুটের জন্য 4 টি আউটপুট লাইন পাওয়া যায়। যেকোনো একটি আউটপুট লাইনের মান 1 হলে বাকি সব কয়টি আউটপুট লাইনের মান 0 হবে। কখন কোন আউটপুট লাইনের মান 1 হবে তা নির্ভর করে ইনপুটগুলোর মানের উপর।    </p>
+                    </div>
+                    {/* Truth Table */}
+                    <div className="overflow-x-auto">
+                        <div className="space-y-2">
+                            <p className="mb-2 font-semibold">2 to 4 লাইন ডিকোডারের সত্যক সারণি:</p>
+                            <table className="table-auto border-collapse border border-slate-500 text-center text-[13px] w-full max-w-sm">
+                                <thead>
+                                    {/* মেইন হেডার: input এবং output */}
+                                    <tr className="bg-slate-50">
+                                        <th colSpan={2} className="border border-slate-500 px-2 py-1 font-semibold text-slate-900">input</th>
+                                        <th colSpan={4} className="border border-slate-500 px-2 py-1 font-semibold text-slate-900">output</th>
+                                    </tr>
+                                    {/* সাব হেডার: ভেরিয়েবল নামসমূহ */}
+                                    <tr className="bg-slate-50">
+                                        <th className="border border-slate-500 px-2 py-1">A</th>
+                                        <th className="border border-slate-500 px-2 py-1">B</th>
+                                        <th className="border border-slate-500 px-2 py-1">D₀</th>
+                                        <th className="border border-slate-500 px-2 py-1">D₁</th>
+                                        <th className="border border-slate-500 px-2 py-1">D₂</th>
+                                        <th className="border border-slate-500 px-2 py-1">D₃</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {[
+                                        { A: 0, B: 0, D0: 1, D1: 0, D2: 0, D3: 0 },
+                                        { A: 0, B: 1, D0: 0, D1: 1, D2: 0, D3: 0 },
+                                        { A: 1, B: 0, D0: 0, D1: 0, D2: 1, D3: 0 },
+                                        { A: 1, B: 1, D0: 0, D1: 0, D2: 0, D3: 1 },
+                                    ].map((row, idx) => (
+                                        <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                                            <td className="border border-slate-500 px-2 py-1">{row.A}</td>
+                                            <td className="border border-slate-500 px-2 py-1">{row.B}</td>
+                                            <td className="border border-slate-500 px-2 py-1 font-medium">{row.D0}</td>
+                                            <td className="border border-slate-500 px-2 py-1 font-medium">{row.D1}</td>
+                                            <td className="border border-slate-500 px-2 py-1 font-medium">{row.D2}</td>
+                                            <td className="border border-slate-500 px-2 py-1 font-medium">{row.D3}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    {/* Logic Functions */}
+                    <p className="font-bold text-slate-900">
+                        সত্যক সারণি হতে আউটপুটের জন্য লজিক ফাংশন-
+                    </p>
+
+                    <div className="space-y-1 font-mono text-[13px]">
+                        <p>D₀ = <span className="border-t border-slate-900">A</span>·<span className="border-t border-slate-900">B</span></p>
+                        <p>D₁ = <span className="border-t border-slate-900">A</span>·B</p>
+                        <p>D₂ = A·<span className="border-t border-slate-900">B</span></p>
+                        <p>D₃ = A·B</p>
+                    </div>
+
+                    {/* Circuit Diagram */}
+                    <div className="mt-4">
+                        <p className="mb-2 font-semibold">উক্ত ফাংশন হতে বাস্তবায়িত সার্কিট:</p>
+                        <img src="/q9/q9.png" alt="2-to-4 Decoder Circuit" className="w-full max-w-md border rounded-lg shadow-sm" />
+                    </div>
                 </div>
             )
         },
