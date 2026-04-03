@@ -637,7 +637,6 @@ const PracticePage = () => {
                 </div>
             )
         },
-
         {
             id: 8,
             q: "(viii) চিত্র-4 এর ডিভাইসটিকে মৌলিক গেটের সাহায্যে প্রকাশ কর এবং লজিক গেট আঁকন কর।",
@@ -647,30 +646,47 @@ const PracticePage = () => {
 
                     <div className="space-y-2 font-mono bg-indigo-50 p-3 text-indigo-800 rounded">
                         <p className="font-bold border-b border-indigo-200 pb-1">লজিক ফাংশন:</p>
-                        <p>
-                            S = <span className="border-t border-indigo-800">A</span>.<span className="border-t border-indigo-800">B</span>.Cᵢ +
-                            <span className="border-t border-indigo-800">A</span>.B.<span className="border-t border-indigo-800">Cᵢ</span> +
-                            A.<span className="border-t border-indigo-800">B</span>.<span className="border-t border-indigo-800">Cᵢ</span> + A.B.Cᵢ
-                        </p>
-                        <p>
-                            C = AB + BCᵢ + ACᵢ
-                        </p>
+                        <div className="space-y-2 font-mono text-lg text-slate-800 bg-indigo-50/50 p-4 rounded-lg">
+                            
+                            <p className="flex flex-wrap items-center gap-1">
+                                <span className="font-bold">S</span> =
+                                <span className="border-t border-slate-900">A</span>.<span className="border-t border-slate-900">B</span>.Cᵢ +
+                                <span className="border-t border-slate-900">A</span>.B.<span className="border-t border-slate-900">Cᵢ</span> +
+                                A.<span className="border-t border-slate-900">B</span>.<span className="border-t border-slate-900">Cᵢ</span> +
+                                A.B.Cᵢ
+                            </p>
+                            <div className="space-y-2 font-mono text-[13px] text-slate-700">
+                                <p>
+                                    C = <span className="border-t border-slate-900">A</span>·B·Cᵢ +
+                                    A·<span className="border-t border-slate-900">B</span>·Cᵢ +
+                                    A·<span className="border-t border-slate-900">B</span>·<span className="border-t border-slate-900">Cᵢ</span> +
+                                    A·B·<span className="border-t border-slate-900">Cᵢ</span> +
+                                    A·B·Cᵢ
+                                </p>
+                                <p>
+                                    = <span className="border-t border-slate-900">A</span>·B·Cᵢ + A.B.Cᵢ +
+                                    A·<span className="border-t border-slate-900">B</span>·Cᵢ + A.B.Cᵢ +
+                                    A·B·<span className="border-t border-slate-900">Cᵢ</span> + A·B·Cᵢ
+                                </p>
+                                <p>
+                                    = B·Cᵢ(<span className="border-t border-slate-900">A</span> + A) +
+                                    A·Cᵢ(<span className="border-t border-slate-900">B</span> + B) +
+                                    A·B(<span className="border-t border-slate-900">Cᵢ</span> + Cᵢ)
+                                </p>
+                                <p>   = B·Cᵢ·1 + A·Cᵢ·1 + A·B·1      </p>
+                                <p className="font-bold text-blue-600">    = AB + BCᵢ + ACᵢ   </p>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="mt-4">
                         <p className="mb-2 font-semibold">   নিচে মৌলিক গেটের সাহায্যে ফুল অ্যাডার বাস্তবায়ন করা হলো: </p>
-
-                        <img
-                            src="/q8/q8.png"
-                            alt="Full Adder using basic gates"
-                            className="w-full max-w-md border rounded-lg shadow-sm"
-                        />
+                        <img  src="/q8/q8.png"  className="w-full max-w-md border rounded-lg shadow-sm"     alt="Full Adder using basic gates"  />
                     </div>
                 </div>
             )
-        }
-
-        ,
+        },
+        
         {
             id: 9,
             q: "(ix) চিত্র-3 এর ডিভাইসটি কী? গঠন ব্যাখ্যা কর।",
