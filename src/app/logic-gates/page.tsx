@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Calculator, ArrowRightLeft, Hash, CheckCircle2, ClipboardList } from 'lucide-react';
+import { div } from 'framer-motion/client';
 
 const truthTableRows = [
     { A: 0, B: 0, Y: 1 },
@@ -32,23 +33,15 @@ const PracticePage = () => {
 
                     <div className="w-full">
                         <p className="mb-2 font-bold text-slate-800">নিচে X-NOR gate এর সত্যক সারণিসহ লজিক গেট দেখানো হলো:</p>
-
-                        {/* লজিক গেট ইমেজ */}
                         <div className="flex justify-center py-4 bg-white rounded border border-slate-100 mb-4">
-                            <img
-                                src="/logicGates/x-nor.png"
-                                alt="X-NOR Gate Logic"
-                                className="h-auto max-w-[280px] object-contain"
-                            />
+                            <img src="/logicGates/x-nor.png" className="h-auto max-w-[280px] object-contain" alt="X-NOR Gate Logic" />
                         </div>
 
-                        {/* সত্যক সারণি (Table) */}
+                        {/* Table */}
                         <table className="w-full border-collapse border border-slate-400 text-center text-[12px] table-fixed">
                             <thead className="bg-slate-100 font-bold">
                                 <tr>
-                                    <th colSpan={2} className="border border-slate-400 p-1 bg-slate-200/50">input</th>
-                                    <th colSpan={2} className="border border-slate-400 p-1"></th>
-                                    <th colSpan={2} className="border border-slate-400 p-1"></th>
+                                    <th colSpan={6} className="border border-slate-400 p-1 bg-slate-200/50">input</th>
                                     <th className="border border-slate-400 p-1 bg-slate-200/50">output</th>
                                 </tr>
                                 <tr>
@@ -563,7 +556,7 @@ const PracticePage = () => {
                         </p>
                     </div>
                     <div className="flex justify-center">
-                        <img src="/q7/xor-to-nand.png" alt="NAND Implementation of XOR" className="max-w-[320px] h-auto rounded shadow-sm border border-slate-200" />
+                        <img src="/q7/xor-to-nand.png" alt="NAND Implementation of XOR" className="max-w-[320px]  h-auto rounded shadow-sm border border-slate-200" />
                     </div>
 
                     {/* NOR Implementation */}
@@ -615,21 +608,20 @@ const PracticePage = () => {
                             <span className='border-t border-slate-900 pt-1'>
                                 <span className='border-t border-slate-900 pt-0.5'>
                                     <span className="flex gap-1 items-center">
-                                        <span className='border-t border-slate-900 pt-1'>
-                                            A  + <span className="border-t border-slate-900 pt-0.5">B</span>
-                                        </span>
-                                        <span className='px-1'>+</span>
+                                        <span className='border-t border-slate-900 pt-0.5'>
+                                            <span className='border-t border-slate-900 pt-1'>
+                                                A  + <span className="border-t border-slate-900 pt-0.5">B</span>
+                                            </span>
+                                            <span className='px-1'>+</span>
 
-                                        <span className='border-t border-slate-900 pt-1'>
-                                            <span className="border-t border-slate-900">A</span>
-                                            + B </span>
+                                            <span className='border-t border-slate-900 pt-1'>
+                                                <span className="border-t border-slate-900">A</span>
+                                                + B </span>
+                                        </span>
                                     </span>
                                 </span>
                             </span>
                         </p>
-
-
-
                     </div>
                     <div className="flex justify-center">
                         <img src="/q7/xor-to-nor.png" alt="NOR Implementation of XOR" className="max-w-[320px] h-auto rounded shadow-sm border border-slate-200" />
@@ -761,24 +753,85 @@ const PracticePage = () => {
         },
         {
             id: 10,
-            q: "(x) F = ĀB · ĀB এর সরলীকৃত মান নির্ণয় করে লজিক গেট আঁকন কর।",
+            q:
+                (
+                    <div className="">
+                        <span className="flex items-center">  = <span className="border-t border-slate-900 pt-0.5"> <span className="flex gap-2 items-center px-1">  <span className="border-t border-slate-900 pt-0.5">   <span className="border-t border-slate-900">A</span>.B  </span>
+                            <span className="text-xl">.</span> <span className="border-t border-slate-900 pt-0.5">  A.<span className="border-t border-slate-900">B</span>  </span> </span>  </span>
+                        </span>
+                        <span className="text-sm pl-2">এর সরলীকৃত মান নির্ণয় করে লজিক গেট আঁকন কর।</span>
+                    </div>
+                ),
             ans: (
-                <div className="space-y-3 text-[13px] text-slate-700 font-mono">
-                    <p>F = (ĀB) · (ĀB)</p>
-                    <p>= ĀB [যেহেতু X · X = X]</p>
-                    <p className="font-sans mt-2">লজিক গেট: একটি NOT গেট এবং একটি AND গেট লাগবে।</p>
+                <div>
+                    <p className="flex items-center mb-4">  = <span className="border-t border-slate-900 pt-0.5"> <span className="flex gap-2 items-center px-1">  <span className="border-t border-slate-900 pt-0.5">   <span className="border-t border-slate-900">A</span>.B  </span>
+                        <span className="text-xl">.</span> <span className="border-t border-slate-900 pt-0.5">    A.<span className="border-t border-slate-900">B</span>  </span> </span>  </span>
+                    </p>
+
+                    <p className="flex items-center mb-4">  =
+                        <span className="flex gap-1 items-center">
+                            <span className='border-t border-slate-900 pt-1'>
+                                (<span className="border-t border-slate-900 pt-0.5">
+                                    <span className="border-t border-slate-900">A</span>
+                                </span> <span className='mr-2'>+</span>
+                                <span className="border-t border-slate-900 pt-0.5">B</span>) .
+
+                                ( <span className="border-t border-slate-900">A</span> <span className='mr-2'>+</span>
+                                <span className="border-t border-slate-900 pt-0.5">
+                                    <span className="border-t border-slate-900">B</span>
+                                </span>)
+                            </span>
+                        </span>
+                    </p>
+
+                    <p className="flex items-center mb-4">  =
+                        <span className="flex gap-1 items-center">
+                            <span className='border-t border-slate-900 pt-1'>
+                                (A <span className='mx-2'>+</span> <span className="border-t border-slate-900 pt-0.5">B</span>) .
+                                ( <span className="border-t border-slate-900">A</span> <span className='mx-2'>+</span> B )
+                            </span>
+                        </span>
+                    </p>
+
+                    <p className="flex items-center mb-4">  =
+                        <span className="flex gap-1 items-center">
+                            <span className='border-t border-slate-900 pt-1'>
+                                A <span className='mx-2'>+</span> <span className="border-t border-slate-900 pt-0.5">B</span>
+                            </span> +
+                            <span className='border-t border-slate-900 pt-1'>
+                                <span className="border-t border-slate-900">A</span> <span className='mx-2'>+</span> B
+                            </span>
+                        </span>
+                    </p>
+
+                    <p className="flex items-center mb-4">  =
+                        <span className="flex gap-1 items-center">
+                            <span className="border-t border-slate-900">A</span>  <span className='mx-2'>.</span> <span className="border-t border-slate-900 pt-0.5">  <span className="border-t border-slate-900">B</span>  </span>  <span className='mx-2'> + </span>
+                            <span className="border-t border-slate-900 pt-0.5">   <span className="border-t border-slate-900">A</span>
+                            </span> <span className='mx-2'>.</span>  <span className="border-t border-slate-900">B</span>
+                        </span>
+                    </p>
+
+                    <p>=  <span className="border-t border-slate-900">A</span>.B <span className='mx-1'>+</span> A.<span className="border-t border-slate-900">B</span>  </p>
+                    <p className="font-bold text-blue-600 text-base"> = A ⊕ B </p>
+
+                    <p><img src="/q10/q10.png" alt="" /></p>
                 </div>
             )
-        },
+        }
+
+        ,
         {
             id: 11,
             q: "(xi) চিত্র-3 এর ডিভাইস ইনপুট 4টি এবং আউটপুট 2টি হলে যে নতুন ডিভাইস পাওয়া যায়, তার লজিক গেট আঁকন কর।",
             ans: (
                 <div className="space-y-3 text-[13px] text-slate-700">
-                    <p>এটি একটি **4-to-2 লাইন এনকোডার**।</p>
+                    {/* <p>এটি একটি **4-to-2 লাইন এনকোডার**।</p>
                     <p className="font-bold underline">আউটপুট সমীকরণ:</p>
                     <p className="font-mono">Y₀ = D₁ + D₃</p>
-                    <p className="font-mono">Y₁ = D₂ + D₃</p>
+                    <p className="font-mono">Y₁ = D₂ + D₃</p> */}
+                    <img src="/q11/image1.png" alt="" />
+                    <img src="/q11/image.png" alt="" />
                 </div>
             )
         },
@@ -787,7 +840,8 @@ const PracticePage = () => {
             q: "(xii) “vi” নং প্রশ্নে প্রাপ্ত গেটটি বাইনারি যোগের বর্তনীতে ব্যবহারের উপযোগী - মূল্যায়ন কর।",
             ans: (
                 <div className="space-y-3 text-[13px] text-slate-700">
-                    <p>XOR গেট বাইনারি যোগের ক্ষেত্রে অপরিহার্য। কারণ এটি ইনপুটগুলোর মধ্যে 'অড প্যারিটি' চেক করে সাম (Sum) প্রদান করে। হাফ-অ্যাডার সার্কিটে একটি XOR গেট সরাসরি সাম হিসেবে কাজ করে।</p>
+                    {/* <p>XOR গেট বাইনারি যোগের ক্ষেত্রে অপরিহার্য। কারণ এটি ইনপুটগুলোর মধ্যে 'অড প্যারিটি' চেক করে সাম (Sum) প্রদান করে। হাফ-অ্যাডার সার্কিটে একটি XOR গেট সরাসরি সাম হিসেবে কাজ করে।</p> */}
+                    <img src="/q12/q12.png" alt="" />
                 </div>
             )
         },
@@ -796,8 +850,11 @@ const PracticePage = () => {
             q: "(xiii) চিত্র-2 এর 2নং গেট দ্বারা মৌলিক গেটগুলো বাস্তবায়ন করা সম্ভব - ব্যাখ্যা কর।",
             ans: (
                 <div className="space-y-4 text-[13px] text-slate-700">
-                    <p>২নং গেটটি যদি **NAND** গেট হয়, তবে এটি একটি সার্বজনীন গেট।</p>
-                    <p>ব্যাখ্যা: NAND গেটের উভয় ইনপুটকে শর্ট করলে **NOT** গেট পাওয়া যায়। দুটি NAND গেট পর পর যুক্ত করলে **AND** গেট পাওয়া যায় এবং তিনটি NAND গেট দিয়ে **OR** গেট তৈরি করা যায়।</p>
+                    {/* <p>২নং গেটটি যদি **NAND** গেট হয়, তবে এটি একটি সার্বজনীন গেট।</p>
+                    <p>ব্যাখ্যা: NAND গেটের উভয় ইনপুটকে শর্ট করলে **NOT** গেট পাওয়া যায়। দুটি NAND গেট পর পর যুক্ত করলে **AND** গেট পাওয়া যায় এবং তিনটি NAND গেট দিয়ে **OR** গেট তৈরি করা যায়।</p> */}
+                    <img src="/q13/q131.png" alt="" />
+                    <img src="/q13/q132.png" alt="" />
+
                 </div>
             )
         },
@@ -806,8 +863,9 @@ const PracticePage = () => {
             q: "(xiv) চিত্র-4 এ একটি ইনপুট কম হলে যে ডিভাইসটি পাওয়া যায় তার দ্বারা পূর্বের ডিভাইসটি বাস্তবায়ন করা সম্ভব- সত্যতা যাচাই কর।",
             ans: (
                 <div className="space-y-4 text-[13px] text-slate-700 leading-relaxed">
-                    <p>চিত্র-৪ একটি ৩-টু-৮ ডিকোডার হলে, ইনপুট কমিয়ে ২-টু-৪ ডিকোডার পাওয়া যাবে।</p>
-                    <p className="font-bold text-rose-600 italic">যাচাই: হ্যাঁ, একাধিক ছোট ডিকোডার (যেমন ২-টু-৪) ব্যবহার করে একটি বড় ডিকোডার (যেমন ৩-টু-৮) বাস্তবায়ন করা সম্ভব। একে ডিকোডার এক্সপানশন বলা হয়।</p>
+                    {/* <p>চিত্র-৪ একটি ৩-টু-৮ ডিকোডার হলে, ইনপুট কমিয়ে ২-টু-৪ ডিকোডার পাওয়া যাবে।</p>
+                    <p className="font-bold text-rose-600 italic">যাচাই: হ্যাঁ, একাধিক ছোট ডিকোডার (যেমন ২-টু-৪) ব্যবহার করে একটি বড় ডিকোডার (যেমন ৩-টু-৮) বাস্তবায়ন করা সম্ভব। একে ডিকোডার এক্সপানশন বলা হয়।</p> */}
+                    <img src="/q14/q14.png" alt="" />
                 </div>
             )
         }
@@ -818,20 +876,17 @@ const PracticePage = () => {
         <main className="min-h-screen bg-[#fdfdfd] pt-32 pb-20 px-6">
             <div className="max-w-6xl mx-auto">
 
-                {/* --- Header & Tabs --- */}
+                {/* --- Header --- */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                     <div className="space-y-2">
-                        <h1 className="text-5xl font-black text-slate-900 tracking-tighter">
-                            Question <span className="text-indigo-600">Bank</span>
-                        </h1>
+                        <h1 className="text-5xl font-black text-slate-900 tracking-tighter">    Question <span className="text-indigo-600">Bank</span> </h1>
                         <p className="text-slate-500 font-medium">নিজে প্র্যাকটিস করো এবং সমাধান মিলিয়ে নাও।</p>
                     </div>
+                    {/* Tab */}
                     <div className="flex p-1.5 bg-slate-100 rounded-3xl border border-slate-200 shadow-inner">
                         {['all', 'cq', 'mcq'].map((tab) => (
                             <button key={tab} onClick={() => setActiveTab(tab)}
-                                className={`px-8 py-3 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${activeTab === tab ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500'}`}
-                            >
-                                {tab}
+                                className={`px-8 py-3 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${activeTab === tab ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500'}`}  > {tab}
                             </button>
                         ))}
                     </div>
@@ -841,26 +896,15 @@ const PracticePage = () => {
                     {(activeTab === 'all' || activeTab === 'cq') && (
                         <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-10">
 
-                            {/* উদ্দীপক */}
                             <div className="max-w-6xl mx-auto space-y-16">
-
                                 {/* Header */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="text-center space-y-4"
-                                >
-                                    <h1 className="text-4xl md:text-6xl font-black text-slate-900">
-                                        CQ: লজিক সার্কিট ও গেট
-                                    </h1>
-                                    <p className="text-slate-600 max-w-3xl mx-auto">
-                                        নিচের ৪টি চিত্র এবং ১৪টি প্রশ্ন একত্রে সমাধান কর।
-                                    </p>
+                                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center space-y-4" >
+                                    <h1 className="text-4xl md:text-6xl font-black text-slate-900">     CQ: লজিক সার্কিট ও গেট   </h1>
+                                    <p className="text-slate-600 max-w-3xl mx-auto">  নিচের ৪টি চিত্র এবং ১৪টি প্রশ্ন একত্রে সমাধান কর।  </p>
                                 </motion.div>
 
                                 {/* Figures Section */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
                                     {/* Figure-1: Truth Table */}
                                     <div className="bg-white rounded-[32px] shadow-lg p-6 border border-slate-200">
                                         <h3 className="text-lg font-bold text-slate-800 mb-4 text-center">চিত্র-1: Truth Table</h3>
@@ -902,23 +946,19 @@ const PracticePage = () => {
 
                                             {/* Main Box (bigger with border) */}
                                             <div className="w-48 h-32 bg-slate-200 border-2 border-black rounded-xl flex items-center justify-center font-bold text-slate-700">
-                                                Device
-                                            </div>
+                                                Device </div>
 
                                             {/* Output */}
                                             <div className="flex flex-col items-center">
                                                 <span className="text-sm font-bold text-slate-600 mb-2">Output</span>
-                                                <div className="px-4 py-2 bg-emerald-100 text-emerald-600 font-black rounded-lg">
-                                                    2^N
-                                                </div>
+                                                <div className="px-4 py-2 bg-emerald-100 text-emerald-600 font-black rounded-lg">   2^N </div>
                                             </div>
                                         </div>
                                     </div>
 
-
                                     {/* Figure-8: Multi Input-Output Box */}
                                     <div className="bg-white rounded-[32px] shadow-lg p-6 border border-slate-200 flex flex-col items-center">
-                                        <h3 className="text-lg font-bold text-slate-800 mb-4">চিত্র-৮: Multi I/O Diagram</h3>
+                                        <h3 className="text-lg font-bold text-slate-800 mb-4">চিত্র-4: Multi I/O Diagram</h3>
                                         <div className="flex items-center gap-6">
                                             <div className="flex flex-col gap-2">
                                                 <div className="px-4 py-2 bg-blue-100 text-blue-600 font-black rounded-lg">Input 1</div>
@@ -926,31 +966,21 @@ const PracticePage = () => {
                                                 <div className="px-4 py-2 bg-blue-100 text-blue-600 font-black rounded-lg">Input 3</div>
                                             </div>
                                             <div className="w-48 h-32 bg-slate-200 border-2 border-black rounded-xl flex items-center justify-center font-bold text-slate-700">
-                                                Device
-                                            </div>
+                                                Device </div>
                                             <div className="flex flex-col gap-2">
                                                 <div className="px-4 py-2 bg-emerald-100 text-emerald-600 font-black rounded-lg">Output 1</div>
                                                 <div className="px-4 py-2 bg-emerald-100 text-emerald-600 font-black rounded-lg">Output 2</div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    {/* Figure-4: Placeholder for image */}
-
                                 </div>
-
-
                             </div>
 
-
-                            {/* প্রশ্ন ও উত্তর সেকশন */}
+                            {/* Q/A section */}
                             <div className="space-y-6">
                                 <div className="flex justify-between items-center px-4">
                                     <h2 className="text-2xl font-black text-slate-900">গাণিতিক প্রশ্নসমূহ</h2>
-                                    <button
-                                        onClick={() => setShowSolutions(!showSolutions)}
-                                        className={`flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-sm transition-all shadow-lg ${showSolutions ? 'bg-indigo-50 text-indigo-600' : 'bg-indigo-600 text-white shadow-indigo-200'}`}
-                                    >
+                                    <button onClick={() => setShowSolutions(!showSolutions)} className={`flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-sm transition-all shadow-lg ${showSolutions ? 'bg-indigo-50 text-indigo-600' : 'bg-indigo-600 text-white shadow-indigo-200'}`} >
                                         <ClipboardList size={18} /> {showSolutions ? 'সমাধান হাইড করো' : 'সম্পূর্ণ সমাধান দেখুন'}
                                     </button>
                                 </div>
@@ -965,13 +995,9 @@ const PracticePage = () => {
                                                 <div className="space-y-6 flex-1">
                                                     <p className="text-slate-800 font-bold leading-relaxed pt-2">{item.q}</p>
 
-                                                    {/* সলিউশন শুধুমাত্র বাটনে ক্লিক করলে দেখাবে */}
+                                                    {/* Solution Button */}
                                                     {showSolutions && (
-                                                        <motion.div
-                                                            initial={{ opacity: 0, height: 0 }}
-                                                            animate={{ opacity: 1, height: 'auto' }}
-                                                            className="pt-6 border-t border-slate-50"
-                                                        >
+                                                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="pt-6 border-t border-slate-50"   >
                                                             {item.ans}
                                                         </motion.div>
                                                     )}
