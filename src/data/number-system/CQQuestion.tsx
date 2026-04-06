@@ -1,10 +1,4 @@
-"use client";
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-    ChevronDown, ChevronUp, Calculator, ArrowRightLeft,
-    Hash, CheckCircle2, ClipboardList
-} from 'lucide-react';
+import SolutionItem from './SolutionItem';
 
 
 const solutions = [
@@ -384,49 +378,63 @@ const solutions = [
     }
 ];
 
-
 const CQQuestion = () => {
-    const [showSolutions, setShowSolutions] = useState(false);
     return (
-        <div className="space-y-6">
-            <div className="flex justify-between items-center px-4">
-                <h2 className="text-2xl font-black text-slate-900">গাণিতিক প্রশ্নসমূহ</h2>
-                <button
-                    onClick={() => setShowSolutions(!showSolutions)}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-sm transition-all shadow-lg ${showSolutions ? 'bg-indigo-50 text-indigo-600' : 'bg-indigo-600 text-white shadow-indigo-200'}`}
-                >
-                    <ClipboardList size={18} /> {showSolutions ? 'সমাধান হাইড করো' : 'সম্পূর্ণ সমাধান দেখুন'}
-                </button>
-            </div>
-
+        <div className="space-y-6 p-4">
+            <h2 className="text-2xl font-black text-slate-900 px-4">গাণিতিক প্রশ্নসমূহ</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {solutions.map((item, i) => (
-                    <div key={i} className="group bg-white border border-slate-100 rounded-[32px] p-8 hover:border-indigo-200 transition-all shadow-sm hover:shadow-xl hover:shadow-indigo-100/20">
-                        <div className="flex gap-5">
-                            <span className="w-10 h-10 bg-slate-50 text-slate-500 rounded-2xl flex items-center justify-center font-bold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-all">
-                                {i + 1}
-                            </span>
-                            <div className="space-y-6 flex-1">
-                                <p className="text-slate-800 font-bold leading-relaxed pt-2">{item.q}</p>
-
-                                {/* সলিউশন শুধুমাত্র বাটনে ক্লিক করলে দেখাবে */}
-                                {showSolutions && (
-                                    <motion.div
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: 'auto' }}
-                                        className="pt-6 border-t border-slate-50"
-                                    >
-                                        {item.ans}
-                                    </motion.div>
-                                )}
-                            </div>
-                        </div>
-                    </div>
+                    <SolutionItem key={item.id} item={item} index={i} />
                 ))}
-
             </div>
         </div>
     );
 };
 
 export default CQQuestion;
+
+// const CQQuestion = () => {
+//     const [showSolutions, setShowSolutions] = useState(false);
+//     return (
+//         <div className="space-y-6">
+//             <div className="flex justify-between items-center px-4">
+//                 <h2 className="text-2xl font-black text-slate-900">গাণিতিক প্রশ্নসমূহ</h2>
+//                 <button
+//                     onClick={() => setShowSolutions(!showSolutions)}
+//                     className={`flex items-center gap-2 px-6 py-3 rounded-2xl font-bold text-sm transition-all shadow-lg ${showSolutions ? 'bg-indigo-50 text-indigo-600' : 'bg-indigo-600 text-white shadow-indigo-200'}`}
+//                 >
+//                     <ClipboardList size={18} /> {showSolutions ? 'সমাধান হাইড করো' : 'সম্পূর্ণ সমাধান দেখুন'}
+//                 </button>
+//             </div>
+
+//             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+//                 {solutions.map((item, i) => (
+//                     <div key={i} className="group bg-white border border-slate-100 rounded-[32px] p-8 hover:border-indigo-200 transition-all shadow-sm hover:shadow-xl hover:shadow-indigo-100/20">
+//                         <div className="flex gap-5">
+//                             <span className="w-10 h-10 bg-slate-50 text-slate-500 rounded-2xl flex items-center justify-center font-bold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+//                                 {i + 1}
+//                             </span>
+//                             <div className="space-y-6 flex-1">
+//                                 <p className="text-slate-800 font-bold leading-relaxed pt-2">{item.q}</p>
+
+//                                 {/* সলিউশন শুধুমাত্র বাটনে ক্লিক করলে দেখাবে */}
+//                                 {showSolutions && (
+//                                     <motion.div
+//                                         initial={{ opacity: 0, height: 0 }}
+//                                         animate={{ opacity: 1, height: 'auto' }}
+//                                         className="pt-6 border-t border-slate-50"
+//                                     >
+//                                         {item.ans}
+//                                     </motion.div>
+//                                 )}
+//                             </div>
+//                         </div>
+//                     </div>
+//                 ))}
+
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default CQQuestion;
